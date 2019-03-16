@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+//* Creates a class called adding
+class adding {
+	public:
+	int A;
+	int B;
+	void set (int a, int b){
+		A = a;
+		B = b;
+	}
+	void add (){ 
+		cout << A + B << endl;
+	}
+};
+
+
+
+
+
+int main() {
+
+//* Creates a variable:
+int var;
+
+//* Creates a pointer to the var variable
+int * pntr1 = &var;
+
+//* Prints out var's address in memory 
+cout << "var's memory address: " << pntr1 <<endl;
+
+//* Sets the value of var to 42 using the * dereference operator
+*pntr1 = 42;
+
+cout << "var = " << var<< endl;
+
+
+//* A second example using class:
+
+
+
+//* Creates an adding class object
+adding numb;
+
+//* Creates a pointer to the object numb
+adding * pntr2 = &numb;
+
+//* Accesses numb's member function set(), using the -> operator and gives it two inputs 
+pntr2->set(2,5);
+
+//* Prints out results
+cout << endl;
+cout << "numb's add function result: ";
+//* Calls numb's add function
+
+numb.add();
+
+	return 0;
+}
