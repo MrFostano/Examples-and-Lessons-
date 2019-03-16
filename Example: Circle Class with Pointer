@@ -1,0 +1,56 @@
+ #include <iostream>
+using namespace std;
+
+
+//* creates a class called circle
+
+class circle {
+	
+	//* creates a variable, and 2 functions with public inheritance.
+ public:
+   int radius;
+   void setValue(int);
+   float area();
+	
+};
+
+
+
+//* defines what the setValue function does: takes one input and assigns its value to radius
+void circle::setValue(int A){
+	radius = A;
+	
+}
+
+//* defines what the area function does: multiplies 3.14 by radius^2 (the area of a circle)
+float circle::area(){
+	return radius * radius * 3.14;
+	
+}
+
+
+int main() {
+
+//* creates an object of circle type
+circle bigCir;
+
+//* creates a pointer and dynamically allocates memory for it
+circle * pntr = new circle;
+
+//* "points" the pointer to the memory space of bigCir
+pntr = &bigCir;
+
+
+//* inputs a value for the setValue function of bigCir
+pntr->setValue(3);
+
+//* prints out the return value of bigCir's area function
+cout << "bigCir's area is: " << bigCir.area();
+
+
+
+	return 0;
+	
+	//* deletes the pointer
+	delete pntr;
+}
