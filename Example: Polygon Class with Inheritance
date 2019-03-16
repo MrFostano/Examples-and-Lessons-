@@ -1,0 +1,63 @@
+//* This is a small program that serves as an example of inhertance using access specifiers.
+#include <iostream>
+using namespace std;
+
+
+//* Base class, or parent class
+class polygon{
+	//* The "protected" access specifier allows members of this class to be accessed only from inside the same class or derived classes.
+   protected:
+   int height; 
+   int width;
+   
+   //* The "public" access specifier allows members of this class anywhere that this class can be seen.
+   public: 
+   void setValues(int H, int B){
+		 height = H; width = B;
+	 }
+	
+};
+
+//* Child class of polygon. Rectangle inherits the variables and setValue fuction from the polygon class. Also adds publically accessable area function.
+class rectangle: public polygon{
+	public:
+	float area(){
+		return height * width;
+	}
+	
+};
+
+
+
+//* Child class of polygon. Triangle inherits the variables and setValue fuction from the polygon class. Also adds publically accessable area function. Does Not inherit anything from rectangle class.
+class triangle: public polygon{
+	public:
+	float area(){
+		return (height * width)/2;
+	}
+	
+};
+
+
+
+
+
+int main() {
+
+//* Creates two objects.
+triangle tri;
+rectangle rec;
+
+//* Uses the public function "SetValues" to give the values of height and width to each object.
+tri.setValues(6,5);
+rec.setValues(4,5);
+
+
+//* Outputs.
+cout << "Area of triangle object: " << tri.area() << endl;
+
+cout << "Area of rectangle object: " << rec.area() << endl;
+
+
+	return 0;
+}
