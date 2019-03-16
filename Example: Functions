@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+
+//* This creates a function called addNumbers. This is called declaring a function. Function is void because it does not return a value.
+void addNumbers(int x, int y) {
+
+//* This creates the function's definition (what the function does).
+  int result = x + y;
+  cout << "Adding x and z = " << result << endl;
+}
+
+//* Another function example. This function is an int type because it returns an int value.
+int subtractNumbers(int X, int Y){
+    return X - Y;
+}
+
+int main() {
+
+//* Calls the function with two inputs.
+  addNumbers(4, 15);
+  
+//* Prints the results of the subtractNumbers function.
+  cout << "This functions's result is: " << subtractNumbers(11, 5);
+
+  return 0;
+}
