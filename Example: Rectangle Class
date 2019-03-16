@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+//* class named rectangle with two variables, and two functions
+class rectangle {
+
+	public:
+int height, width;
+void setValues (int , int);
+int area();
+
+
+};
+
+//* this defines what the setValues function does: it takes values for height and width
+
+void rectangle::setValues(int A, int B){
+	height = A;
+	width = B;
+}
+
+//* this defines what the area function does: returns width multiplied by height
+
+int rectangle::area(){
+	return width * height;
+}
+
+
+
+int main() {
+
+
+//* creates two objects of rectangle type
+rectangle recA;
+rectangle recB;
+
+//* allows you to input values to the height and width variables of each object
+recA.setValues (4,5);
+recB.setValues(6,6);
+
+//*outputs to console each objects area
+cout << "recA's area is: " << recA.area() <<endl;
+
+cout << "recB's area is: " << recB.area() <<endl;
+
+	return 0;
+}
