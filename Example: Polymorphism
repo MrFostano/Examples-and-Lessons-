@@ -1,0 +1,109 @@
+//* Polymorphism Example. 
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+/* Creates a base class called enemy. We create functions to get and set color and description strings. Notice that one function is set as virtual.*/
+class enemy {
+	
+	protected:
+	string color;
+	string descr;
+	
+	public:
+	void setColor(string Col){
+		color = Col;
+	}
+	
+	  virtual string getColor(){
+		return "dark";
+	}
+	
+	  void setDescript(string Des){
+			   descr = Des;
+	}
+	
+	  string getDescript(){
+			return "Big";
+	}
+	
+	
+};
+
+
+/*Child class of enemy. It inherits the setColor and setDescript functions, but makes the get functions return the variable values instead of the strings used in the base class.*/
+class ninja: public enemy{
+
+	public:
+	string getColor(){
+		return color;
+	}
+	 
+	 string getDescript(){
+	     return descr;
+	}
+};
+
+
+/*Child class of enemy. It inherits the setColor and setDescript functions, but makes the get functions return the variable values instead of the strings used in the base class.*/
+class pirate: public enemy{
+	
+	public:
+	string getColor(){
+		return color;
+	}
+	
+	string getDescript(){
+	    return descr;
+	}
+};
+
+
+
+int main() {
+
+/* Creates two objects, one of ninja type and one of pirate type.*/
+ninja Kenji;
+pirate John;
+
+/* Creates two pointers, one to Kenji and one to John. Notice that the pointers are of the type enemy, which is the base class of these two objects*/
+enemy * pntrK = &Kenji;
+enemy * pntrJ = &John;
+
+/* Here we use the pointers to add values to these functions. Note that these pointers point to &Kenji */
+pntrK->setColor("Red");
+pntrK->setDescript("ugly");
+
+/* Here we use the pointers to add values to these functions. Note that these pointers point to &John */
+pntrJ->setColor("Pink");
+pntrJ->setDescript("Fat");
+
+
+/* Note that some of the functions called by the pointers return the base class values instead of the values set by the pointers. The function designated virtual in the base class makes these classes polymorphic. Methods used this way will be actualized dynamically, based on the objects type, not the pointers type. */
+
+cout << "Kenji is a " << pntrK->getDescript() << " ninja." << endl; 
+
+
+cout << "Kenji is a " << pntrK->getColor() << " ninja." << endl;
+
+
+cout << "Kenji is a " << Kenji.getColor() << " ninja." << endl;
+
+cout << "Kenji is a " << Kenji. getDescript() << " ninja." << endl << endl;
+
+/* getDescript is not specified virtual, so is resolved via the pointers type, which is called "enemy".*/
+cout << "John is a " << pntrJ->getDescript() << " pirate" << endl;
+
+
+cout << "John is a " << pntrJ->getColor() << " pirate." << endl;
+
+/* Called the getColor and getDescript functions via the objects John and Kenji as a further examples. */
+cout << "John is a " << John.getColor() << " pirate." << endl;
+
+
+cout << "John is a " << John.getDescript() << " pirate." << endl;
+
+	return 0;
+}
