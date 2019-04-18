@@ -1,0 +1,55 @@
+/* Array Average*/
+
+#include <iostream>
+#include <vector>
+#include <numeric>
+using namespace std;
+
+//* A nice little array with 30 int values 
+int List []= {2,5,38,29,17,80,71,47,88,98,22,72,6,8,7,56,98,45,32,89,19,73,10,6,9,82,17,49,37,9};
+
+
+/* A 'for' function used to get the average of the array*/
+int arrAvg ()
+{
+		int value= 0;
+	   
+	   /* size() is from the vector			  		library. It returns the number of 		elements in an array or vector */
+		for ( int i=0; i < size(List); i++)
+		{
+			value += List[i];
+		}
+	   
+		return ( value / size(List)) ;
+
+}
+
+/* A 'while' function used to get the average of the array. You can change the name of the function called in main to use this function instead */
+int arrAvg2 ()
+{
+	int i = 0;
+	int sum = 0;
+	
+	while (i < size(List)){
+		sum += List[i];
+		++i;
+	}
+	return (sum / size(List));
+}
+
+
+
+
+
+int main()
+{
+//* An example of what size() returns
+cout << "The number of elements in this array is " << size(List) << endl <<endl;
+
+//* Calls the arrAvg1 function
+cout << "The average of all elements is "
+	 << arrAvg();
+	 
+	 
+	return 0;
+}
