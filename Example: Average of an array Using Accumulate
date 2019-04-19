@@ -1,0 +1,34 @@
+/* Array Average*/
+
+#include <iostream>
+#include <vector>
+#include <numeric>
+using namespace std;
+
+//* A nice little array with 30 int values 
+int List []= {2,5,38,29,17,80,71,47,88,98,22,72,6,8,7,56,98,45,32,89,19,73,10,6,9,82,17,49,37,9};
+
+
+/* A function that uses the accumulate function from the numeric library. begin() and end() are where you input the name of your array. The third input is a value you want to add to the total, this will typically be zero. */
+int arrAve()
+{
+int arrSum = accumulate(begin(List),end(List),0);
+
+ /* This part creates the average by dividing arrSum by the size of the list. Size() is a function from the vector library that returns the number of elements in an array or vector */
+ return (arrSum / size(List));
+}
+
+
+
+int main()
+{
+//* An example of what size() returns
+cout << "The number of elements in this array is " << size(List) << endl <<endl;
+
+//* Calls the arrAvg() function
+cout << "The average of all elements is "
+	 << arrAve();
+	 
+	 
+	return 0;
+}
