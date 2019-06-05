@@ -1,0 +1,30 @@
+
+/* 
+LinkedIn Learning's C++ Learning Path,
+Euclid's Algorithm using C++
+*/
+#include <iostream>
+using namespace std;
+
+
+/* Creates a function that returns the largest 
+common denominator of two numbers. 
+Uses recursion, i.e. this function calls itself. */
+
+int Euc (int A, int B){
+	if (A== 0)
+	return B;
+	
+	else 
+	return Euc(B%A, A);
+}
+
+
+int main() {
+
+cout << "The largest common denominator for 42 and 10 is: " << Euc(42,10) << endl << endl;
+
+cout << "The largest common denominator for 836 and 96 is: " << Euc(836,96) << endl;
+
+	return 0;
+}
